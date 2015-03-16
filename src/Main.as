@@ -4,11 +4,14 @@ package
 	
 	import Delegate.TestMedia;
 	
+	import FactoryModel.PrintCenter.PrintCenterTest;
+	
 	public class Main extends Sprite
 	{
 		public function Main()
 		{
-			new TestMedia();
+//			new TestMedia();
+			new PrintCenterTest();
 		}
 	}
 }

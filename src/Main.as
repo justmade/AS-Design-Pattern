@@ -1,6 +1,9 @@
 package
 {
 	import flash.display.Sprite;
+	import flash.events.Event;
+	
+	import Carmark.T_FioCarmack;
 	
 	import Delegate.TestMedia;
 	
@@ -13,7 +16,14 @@ package
 		{
 //			new TestMedia();
 //			new PrintCenterTest();
-			this.addChild(new ShapesTest())
+//			this.addChild(new ShapesTest())
+			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
+	
+		}
+		
+		protected function onStage(event:Event):void
+		{
+			this.addChild(new T_FioCarmack());
 		}
 	}
 }

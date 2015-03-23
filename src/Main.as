@@ -7,6 +7,8 @@ package
 	
 	import Carmark.T_FioCarmack;
 	
+	import Component.ComponentTest;
+	
 	import Decorator.DecTest;
 	
 	import Delegate.TestMedia;
@@ -22,7 +24,8 @@ package
 //			new PrintCenterTest();
 //			this.addChild(new ShapesTest())
 //			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
-			new AdapterTest();
+//			new AdapterTest();
+			new ComponentTest();
 	
 		}
 		

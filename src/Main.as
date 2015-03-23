@@ -3,6 +3,8 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
+	import Adapter.AdapterTest;
+	
 	import Carmark.T_FioCarmack;
 	
 	import Decorator.DecTest;
@@ -20,7 +22,7 @@ package
 //			new PrintCenterTest();
 //			this.addChild(new ShapesTest())
 //			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
-			new DecTest();
+			new AdapterTest();
 	
 		}
 		

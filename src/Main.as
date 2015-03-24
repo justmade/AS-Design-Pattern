@@ -7,6 +7,8 @@ package
 	
 	import Carmark.T_FioCarmack;
 	
+	import Command.CommandTest;
+	
 	import Component.ComponentTest;
 	
 	import Decorator.DecTest;
@@ -25,7 +27,8 @@ package
 //			this.addChild(new ShapesTest())
 //			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
 //			new AdapterTest();
-			this.addChild(new ComponentTest());
+//			this.addChild(new ComponentTest());
+			new CommandTest();
 	
 		}
 		

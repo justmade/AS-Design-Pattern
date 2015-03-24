@@ -1,8 +1,9 @@
 package Component
 {
+	import flash.display.Sprite;
 	import flash.errors.IllegalOperationError;
 
-	public class Component
+	public class Component extends Sprite
 	{
 		
 		protected var parentNode:Composite;
@@ -39,6 +40,10 @@ package Component
 		
 		public function getComposite():Component{
 			return null;
+		}
+		
+		public function update():void{
+			
 		}
 		
 		internal function removeParentRef():void{

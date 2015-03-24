@@ -25,7 +25,7 @@ package
 //			this.addChild(new ShapesTest())
 //			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
 //			new AdapterTest();
-			new ComponentTest();
+			this.addChild(new ComponentTest());
 	
 		}
 		

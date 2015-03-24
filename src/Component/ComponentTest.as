@@ -1,26 +1,80 @@
 package Component
 {
-	public class ComponentTest
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.geom.Point;
+	import flash.ui.Keyboard;
+
+	public class ComponentTest extends Sprite
 	{
+		private var snake:Composite; 
+		
+		private var upOffset:Point ;
+		
+		private var backOffset:Point;
+		
 		public function ComponentTest()
 		{
-			var root:Composite = new Composite("Root");
+			snake = new Head("head",0x007536);
+			snake.x = snake.y = 100 ;
+			this.addChild(snake);
 			
-			var n1:Composite = new Composite("S1");
-			n1.add(new Leaf("Leaf 1"));
-			n1.add(new Leaf("Leaf 2"));
-			root.add(n1);
+			var parentNode:Composite = snake ;
+			for(var i:int = 0 ; i < 10 ; i++){
+				var segment:Composite = new BodySegment("Body");
+				parentNode.add(segment);
+				segment.x = segment.y = -50 ;
+				this.addChild(segment);
+				parentNode = segment;
+			}
 			
-			var n2:Composite = new Composite("S2");
-			n2.add(new Leaf("Leaf 3"));
-			n2.add(new Leaf("Leaf 4"));
-			n2.add(new Leaf("Leaf 5"));
-			root.add(n2);
+			var tail:Component = new Tail("tail");
+			this.addChild(tail);
+			parentNode.add(tail);
+			snake.update();
 			
-			root.add(new Leaf("Leaf 6"));
 			
-			root.operation();
-			
+			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
+		}
+		
+		protected function onStage(event:Event):void
+		{
+			this.removeEventListener(Event.ADDED_TO_STAGE , onStage);
+			this.stage.addEventListener(KeyboardEvent.KEY_DOWN , onKeyPress);
+		}
+		
+		protected function onKeyPress(event:KeyboardEvent):void
+		{
+			switch(event.keyCode)
+			{
+				case Keyboard.LEFT:
+					snake.rotation -= 10;
+					break;
+				case Keyboard.RIGHT:
+					snake.rotation += 10;
+					break;
+				case Keyboard.UP:
+					upOffset = Point.polar(5,snake.rotation * Math.PI/180);
+					moveSnake(upOffset);
+					break;
+				case Keyboard.DOWN:
+					backOffset = Point.polar(-5,snake.rotation * Math.PI / 180);
+					moveSnake(backOffset);
+					break;
+					
+				default:
+				{
+					break;
+				}
+					
+			}
+			snake.update()
+		}
+		
+		private function moveSnake(_p:Point):void{
+			snake.x += _p.x ;
+			snake.y += _p.y ;
 		}
 	}
 }

@@ -44,6 +44,14 @@ package Component
 			}
 		}
 		
+		override public function update():void
+		{
+			for each(var c:Component in aChildren){
+				c.update();
+			}
+		}
+		
+		
 		override public function remove(c:Component):void
 		{
 			if(c == this){

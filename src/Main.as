@@ -18,6 +18,8 @@ package
 	import FactoryModel.PrintCenter.PrintCenterTest;
 	import FactoryModel.Shapes.ShapesTest;
 	
+	import Observer.ObserverTest;
+	
 	public class Main extends Sprite
 	{
 		public function Main()
@@ -28,8 +30,20 @@ package
 //			this.addEventListener(Event.ADDED_TO_STAGE , onStage);
 //			new AdapterTest();
 //			this.addChild(new ComponentTest());
-			new CommandTest();
-	
+//			new CommandTest();
+//			new ObserverTest();
+			
+		
+			test();
+		}
+		private function test():void{
+			for(var i:int = 0 ; i < 10 ; i++){
+				if(i == 5){
+					continue;
+				}
+				trace("i:",i)
+			}
+			trace("test")
 		}
 		
 		protected function onStage(event:Event):void
